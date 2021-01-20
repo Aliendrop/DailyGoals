@@ -18,5 +18,8 @@ djmg:		#
 djtest:		#
 	@$(M) test
 
+djtestsa:	# Create test sa
+	@$(M) dev_create_sa
+
 vdev:		# VueApp
 	@cd front/; npm run serve; cd ..
