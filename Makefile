@@ -18,7 +18,7 @@ djmg:		#
 djtest:		#
 	@$(M) test
 
-djtestsa:	# Create test sa
+djaddsa:	# Create test sa user
 	@$(M) dev_create_sa
 
 djlint:		#
