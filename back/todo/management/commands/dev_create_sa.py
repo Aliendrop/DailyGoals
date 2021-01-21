@@ -8,5 +8,8 @@ class Command(BaseCommand):
 
     def handle(self, **options):
         _, created = get_or_create_demo_user(is_staff=True, is_superuser=True)
-        msg = [f'Superuser {"created" if created else "exist"}!', f'username={DEFAULT_USERNAME}', f'password={DEFAULT_PASSWORD}']
+        msg = [
+            f'Superuser {"created" if created else "exist"}!',
+            f'username={DEFAULT_USERNAME}', f'password={DEFAULT_PASSWORD}',
+        ]
         print('\n'.join(msg))

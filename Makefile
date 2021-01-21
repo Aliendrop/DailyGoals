@@ -21,5 +21,8 @@ djtest:		#
 djtestsa:	# Create test sa
 	@$(M) dev_create_sa
 
+djlint:		#
+	@pycodestyle back
+
 vdev:		# VueApp
 	@cd front/; npm run serve; cd ..
