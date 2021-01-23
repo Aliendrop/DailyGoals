@@ -8,4 +8,4 @@ class ToDoSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Goal
-        fields = ['user', 'title', 'done', 'url']
+        fields = ['user', 'title', 'done', 'url', ]
