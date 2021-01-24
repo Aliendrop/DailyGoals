@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Third apps
     'rest_framework',
     'corsheaders',
+    'rest_framework_simplejwt.token_blacklist',
     # Project apps
     'todo.apps.TodoConfig',
     'api.apps.ApiConfig',
