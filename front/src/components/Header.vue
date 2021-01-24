@@ -1,6 +1,6 @@
 <template functional>
   <div class="header">
-    <h1 class="title">{{props.header}}</h1>
+    <h1 class="title">{{ props.header }}.</h1>
   </div>
 </template>
 

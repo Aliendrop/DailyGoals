@@ -5,23 +5,31 @@
       autofocus
       autocomplete="off"
       placeholder="What needs to be done?"
-      v-model="newTodo"
-      @keyup.enter="addTodo"
+      v-model="newToDoTitle"
+      @keyup.enter="addToDo"
     />
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: "NewTodo",
+  name: "NewToDo",
   data: () => {
     return {
-      newTodo: null,
+      newToDoTitle: null,
     }
   },
   methods: {
-    addTodo () {
-      // TODO:
+    ...mapActions({
+      addToDoItem: 'toDoList/addToDoItem',
+    }),
+    addToDo () {
+      if (this.newToDoTitle) {
+        this.addToDoItem(this.newToDoTitle)
+        this.newToDoTitle = null
+      }
     }
   }
 }

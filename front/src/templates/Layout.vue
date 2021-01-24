@@ -49,7 +49,7 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--cLime);
 }
 #app {
-  width: 100%;
+  width: calc(100vw - 15px);
   height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   font-size: 33px;
@@ -57,7 +57,6 @@ body::-webkit-scrollbar-thumb {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-    box-sizing: border-box;
 }
 .content {
   width: 100%;

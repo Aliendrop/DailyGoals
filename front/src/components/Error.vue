@@ -12,7 +12,7 @@ export default {
 
 <style scoped>
   .error-wrapper {
-    padding: 0 20px 0 20px;
+    padding: 0 20px 60px 20px;
   }
   .error {
     color: #e2306c;

@@ -1,24 +1,43 @@
 <template>
-  <label class="container">{{ title }}
-  <input type="checkbox" :checked="done">
-  <span class="checkmark"></span>
+  <label class="container">
+    <span
+      class="title"
+      :class="{done: item.done}"
+    >{{ item.title }}</span>
+    <input
+      type="checkbox"
+      :checked="item.done"
+      :disabled="item.dummy"
+      @click="changeStatus(index)"
+    >
+    <span class="checkmark" />
   </label>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  name: "Checkbox",
+  name: "ToDoItem",
   props: {
-    title: String,
-    done: {
-      type: Boolean,
-      default: false
-    }
-  }
+    index: Number,
+    item: Object,
+  },
+  methods: {
+    ...mapActions({
+      changeStatus: 'toDoList/changeStatus',
+    }),
+  },
 }
 </script>
 
 <style scoped>
+.done,
+.container:hover {
+  text-decoration: line-through;
+  text-decoration-color: #BCFE2F;
+
+}
 /* The container */
 .container {
   display: inline-block;
@@ -54,7 +73,7 @@ export default {
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #bababa;
+  background-color: #BCFE2F;
 }
 
 /* When the checkbox is checked, add a blue background */

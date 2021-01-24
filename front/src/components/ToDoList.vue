@@ -1,8 +1,10 @@
 <template>
-  <div>
+  <div class="todo-list-bg">
     <NewToDo />
-    <div v-for="(item, index) of toDoList" :key="index">
-      {{ index + 1 }}. <ToDoItem :title="item.title" :done="item.done"/>
+    <div class="todo-list-wrapper">
+      <div v-for="(item, index) of toDoList" :key="index">
+        <ToDoItem :index="index" :item="item" />
+      </div>
     </div>
     <Error v-if="loadError" :message="loadError" />
   </div>
@@ -12,7 +14,7 @@
 import ToDoItem from '@/components/ToDoItem'
 import NewToDo from '@/components/NewToDo'
 import Error from '@/components/Error'
-import { mapActions, mapState } from 'vuex'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'ToDoList',
@@ -30,9 +32,11 @@ export default {
     }
   },
   computed: {
+    ...mapGetters({
+      toDoList: 'toDoList/getData'
+    }),
     ...mapState({
       loadError: state => state.toDoList.error,
-      toDoList: state => state.toDoList.data
     }),
   },
   methods: {
@@ -45,3 +49,22 @@ export default {
   }
 }
 </script>
+
+<style>
+.todo-list-bg {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+.todo-list-wrapper {
+  color: #fff;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin: 30px auto;
+  text-align: left;
+  padding-left: 40px;
+  padding-bottom: 40px;
+}
+</style>
