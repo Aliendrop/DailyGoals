@@ -17,7 +17,7 @@ export default {
   components: {
     Layout,
     Header,
-    ToDoList
+    ToDoList,
   }
 }
 </script>

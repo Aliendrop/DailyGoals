@@ -5,12 +5,14 @@ export default (endpointName) => {
   const prod = dev
 
   const api = {
-    todo: 'todo',
+    todo: 'todo',  // GET, POST
+    token: 'token',  // POST
+    refresh: 'token/refresh',  // POST
   }
 
   return (
     env === 'production' ?
-      `${prod}${api[endpointName]}` :
-      `${dev}${api[endpointName]}`
+      `${prod}${api[endpointName]}/` :
+      `${dev}${api[endpointName]}/`
   )
 }

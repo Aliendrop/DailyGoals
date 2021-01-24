@@ -1,22 +1,25 @@
 <template>
   <div>
     <NewToDo />
-    <div><Checkbox title="Hello" :checked="false"/></div>
-    <div><Checkbox title="Hello" :checked="true"/></div>
-    <div><Checkbox title="Hello" :checked="true"/></div>
-    <div><Checkbox :title="toDo.title" :checked="toDo.checked"/></div>
+    <div v-for="(item, index) of toDoList" :key="index">
+      {{ index + 1 }}. <ToDoItem :title="item.title" :done="item.done"/>
+    </div>
+    <Error v-if="loadError" :message="loadError" />
   </div>
 </template>
 
 <script>
-import Checkbox from '@/components/Checkbox'
+import ToDoItem from '@/components/ToDoItem'
 import NewToDo from '@/components/NewToDo'
+import Error from '@/components/Error'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'ToDoList',
   components: {
-    Checkbox,
-    NewToDo
+    ToDoItem,
+    NewToDo,
+    Error
   },
   data: () => {
     return {
@@ -25,6 +28,20 @@ export default {
         checked: true,
       }
     }
+  },
+  computed: {
+    ...mapState({
+      loadError: state => state.toDoList.error,
+      toDoList: state => state.toDoList.data
+    }),
+  },
+  methods: {
+  ...mapActions({
+    collectToDo: 'toDoList/collectToDo',
+  }),
+},
+  created () {
+    this.collectToDo()
   }
 }
 </script>

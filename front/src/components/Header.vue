@@ -7,7 +7,7 @@
 <style scoped>
 .header {
   display: inline-block;
-  margin: 20px;
+  margin: 30px 0 0 0;
   background: #020202;
 }
 .title {

@@ -16,7 +16,7 @@ export default {
   name: "NewTodo",
   data: () => {
     return {
-      newTodo: undefined,
+      newTodo: null,
     }
   },
   methods: {
@@ -30,7 +30,11 @@ export default {
 <style scoped>
 .new-todo-wrapper {
   max-width: 800px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin: 30px auto;
 }
 .new-todo {
   display: inline-block;
