@@ -1,12 +1,12 @@
 <template>
   <div class="todo-list-bg">
     <NewToDo />
+    <Error v-if="loadError" :message="loadError" />
     <div class="todo-list-wrapper">
       <div v-for="(item, index) of toDoList" :key="index">
         <ToDoItem :index="index" :item="item" />
       </div>
     </div>
-    <Error v-if="loadError" :message="loadError" />
   </div>
 </template>
 
