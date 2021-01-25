@@ -11,9 +11,6 @@ export default {
 </script>
 
 <style scoped>
-  .error-wrapper {
-    padding: 0 20px 60px 20px;
-  }
   .error {
     color: #e2306c;
   }
