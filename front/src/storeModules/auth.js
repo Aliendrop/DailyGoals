@@ -8,8 +8,8 @@ export default {
   },
   mutations: {
     removeToken (state) {
-      localStorage.removeItem('jwt')
-      state.state.jwt = null
+      localStorage.removeItem('token')
+      state.state.token = null
     },
   },
   actions: {},
