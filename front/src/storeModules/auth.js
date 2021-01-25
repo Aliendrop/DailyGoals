@@ -9,7 +9,7 @@ export default {
   mutations: {
     removeToken (state) {
       localStorage.removeItem('token')
-      state.state.token = null
+      state.token = null
     },
   },
   actions: {},
